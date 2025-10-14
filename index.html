@@ -42,8 +42,8 @@
 </head>
 <body>
     
-    <h1>Услуги разработки и автоматизации</h1>
-    <hr>
+<h1>Услуги разработки и автоматизации</h1>
+<hr>
 <div id="content">Создаю сайты. Доделываю сайты. Исправляю сайты. Работаю с разными CMS (WordPress, Битрикс, OpenCart, ModX и т.д.). Пишу скрипты, сложные формы, квизы.<br>
 +<br>
 Тильда = 88 градус посвящения (делаю любой функционал).<br>
@@ -67,12 +67,11 @@ C#, PHP, Python, JavaScript, HTML5, CSS3, React, Apps Script, VBA, Git, VB .Net<
 Внедряю ИИ. Создаю автономные модели ML на основе ваших данных. Без сторонних ChatGPT.
 </div>
     
-    <button id="copyBtn">Копировать текст</button>
-    <p>
-        <a href="https://cmacuk.t.me">Стучите в мой Телеграм</a>
-    </p>
+<button id="copyBtn">Копировать текст</button>
+<p><a href="https://cmacuk.t.me">Стучите в мой Телеграм</a></p>
 <hr>
-    <p>
+
+<p>
 <a target="_blank" href="https://wrapcar.ru">
     Tilda: wrapcar.ru</a> c нуля (начиная с цветовой гаммы)<br>
 <a target="_blank" href="https://kamushkof.ru">
@@ -88,28 +87,33 @@ C#, PHP, Python, JavaScript, HTML5, CSS3, React, Apps Script, VBA, Git, VB .Net<
 <a target="_blank" href="https://griffix.ru">
     Bitrix: griffix.ru</a> верстка, модули<br>        
 Много сайтов =))
-    </p>
-    <script>
-        document.getElementById('copyBtn').addEventListener('click', function() {
-            const content = document.getElementById('content').textContent;
-            
-            navigator.clipboard.writeText(content)
-                .then(() => {
-                    const btn = document.getElementById('copyBtn');
-                    btn.textContent = 'Текст скопирован!';
-                    btn.classList.add('copied');
-                    
-                    setTimeout(() => {
-                        btn.textContent = 'Копировать текст';
-                        btn.classList.remove('copied');
-                    }, 2000);
-                })
-                .catch(err => {
-                    console.error('Не удалось скопировать текст: ', err);
-                    alert('Не удалось скопировать текст. Попробуйте снова.');
-                });
-        });
-    </script>
+</p>
+
+<script>
+    
+    document.getElementById('copyBtn').addEventListener('click', () => {
+        
+        const content = document.getElementById('content').textContent;
+        
+        navigator.clipboard.writeText(content)
+            .then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.textContent = 'Текст скопирован!';
+                btn.classList.add('copied');
+                
+                setTimeout(() => {
+                    btn.textContent = 'Копировать текст';
+                    btn.classList.remove('copied');
+                }, 2000);
+            })
+            .catch(err => {
+                console.error('Не удалось скопировать текст: ', err);
+                alert('Не удалось скопировать текст. Попробуйте снова.');
+            }); 
+        
+    }); // addEventsListener
+    
+</script>
 
 </body>
 </html>
