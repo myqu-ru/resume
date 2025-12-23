@@ -3,110 +3,385 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Разработка сайтов и автоматизация</title>
+    <title>Разработка сайтов и автоматизация | Фуллстек разработчик</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #0066cc;
+            --primary-dark: #0055aa;
+            --secondary-color: #00aa44;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --border-color: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
-            max-width: 800px;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
-        h1 {
-            color: #333;
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 40px 0;
             text-align: center;
+            border-radius: 0 0 10px 10px;
+            margin-bottom: 30px;
         }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .contact-btn i {
+            margin-right: 8px;
+        }
+        
+        .content-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+        
         .highlight {
             font-weight: bold;
-            color: #0066cc;
+            color: var(--primary-color);
         }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .skill-tag {
+            background-color: #e9f4ff;
+            color: var(--primary-dark);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
         #copyBtn {
             display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            background-color: #0066cc;
+            width: 100%;
+            margin: 25px auto;
+            padding: 15px;
+            background-color: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
+        
         #copyBtn:hover {
-            background-color: #0055aa;
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
+        
         #copyBtn.copied {
-            background-color: #00aa44;
+            background-color: var(--secondary-color);
+        }
+        
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .portfolio-item {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .portfolio-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .portfolio-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .portfolio-link:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            color: var(--primary-color);
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-dark);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 30px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .content-card {
+                padding: 20px;
+            }
+            
+            .portfolio {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <h1>Разработка сайтов и автоматизация</h1>
+            <p class="subtitle">Фуллстек разработчик & специалист по автоматизации бизнес-процессов</p>
+            <a href="https://cmacuk.t.me" class="contact-btn" target="_blank">
+                <i class="fab fa-telegram"></i> Связаться в Telegram
+            </a>
+        </div>
+    </header>
     
-<h1>Услуги разработки и автоматизации</h1>
-<hr>
-<div id="content">Создаю сайты. Доделываю сайты. Исправляю сайты. Работаю с разными CMS (WordPress, Битрикс, OpenCart, ModX и т.д.). Пишу скрипты, сложные формы, квизы.<br>
-+<br>
-Тильда = 88 градус посвящения (делаю любой функционал).<br>
-Интеграция Tilda с любыми сервисами, CRM, Гугл Таблицами и проч.<br>
-Уберу копирайт "made on Tilda" на любом тарифе.<br>
-+<br>
-Авторизация на вашем сайте через SMS-код.<br>
-+<br>
-Пишу программы (Windows, Linux, iOS), парсеры, боты (Телеграм, Вконтакте и т.д.).<br>
-Скрипты автоматизации действий людей и/или сложных расчетов.<br>
-Пишу расширения для браузеров, в том числе по автоматизации.<br>
-Пишу скрипты для Wildberries, Ozon, Авито и проч.<br>
-+<br>
-Пишу калькуляторы (строительные, дистанция доставки, финансовые, ОСАГО и проч.)<br>
-+<br>
-Работаю с сервисами Гугл (Таблицы, Документы, Майл, Диск и т.д.) на уровне скриптов Apps Script. Делаю сложные сводные таблицы.<br>
-+<br>
-Пишу скрипты/макросы VBA для Excel, Word, Access.<br>
-&times;<br>
-C#, PHP, Python, JavaScript, HTML5, CSS3, React, Apps Script, VBA, Git, VB .Net<br>
-Внедряю ИИ. Создаю автономные модели ML на основе ваших данных. Без сторонних ChatGPT.
-</div>
-    
-<button id="copyBtn">Копировать текст</button>
-<p><a href="https://cmacuk.t.me">Стучите в мой Телеграм</a></p>
-<hr>
-
-<p>
-Tilda: <a target="_blank" href="https://wrapcar.ru">wrapcar.ru</a> c нуля (начиная с цветовой гаммы)<br>
-WordPress: <a target="_blank" href="https://kamushkof.ru">kamushkof.ru</a> тут я верстал и делал (писал))) функционал<br>
-WordPress: <a target="_blank" href="https://gk-izyskaniya.ru">gk-izyskaniya.ru</a> тут просто верстал<br>
-WordPress: <a target="_blank" href="https://taxtica.ru">taxtica.ru</a> тут тоже почти с нуля делал<br>
-Bitrix: <a target="_blank" href="https://alumoknaspb.ru">alumoknaspb.ru</a> верстка, битрикс<br>
-Bitrix: <a target="_blank" href="https://karno-service.ru">karno-service.ru</a> верстка, модули<br>
-Bitrix: <a target="_blank" href="https://griffix.ru">griffix.ru</a> верстка, модули<br>        
-Много сайтов =))
-</p>
-
-<script>
-    
-    document.getElementById('copyBtn').addEventListener('click', () => {
-        
-        const content = document.getElementById('content').textContent;
-        
-        navigator.clipboard.writeText(content)
-            .then(() => {
-                const btn = document.getElementById('copyBtn');
-                btn.textContent = 'Текст скопирован!';
-                btn.classList.add('copied');
+    <div class="container">
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-laptop-code"></i> Услуги разработки</h2>
+            <div id="content">
+                <p><span class="highlight">Создаю сайты. Доделываю сайты. Исправляю сайты.</span> Работаю с разными CMS (WordPress, Битрикс, OpenCart, ModX и т.д.). Пишу скрипты, сложные формы, квизы.</p>
                 
-                setTimeout(() => {
-                    btn.textContent = 'Копировать текст';
-                    btn.classList.remove('copied');
-                }, 2000);
-            })
-            .catch(err => {
-                console.error('Не удалось скопировать текст: ', err);
-                alert('Не удалось скопировать текст. Попробуйте снова.');
-            }); 
+                <p><span class="highlight">Тильда = 88 градус посвящения</span> (делаю любой функционал). Интеграция Tilda с любыми сервисами, CRM, Гугл Таблицами и проч. Уберу копирайт "made on Tilda" на любом тарифе.</p>
+                
+                <p><span class="highlight">Авторизация на вашем сайте через SMS-код.</span></p>
+                
+                <p><span class="highlight">Пишу программы (Windows, Linux, iOS), парсеры, боты</span> (Телеграм, Вконтакте и т.д.). Скрипты автоматизации действий людей и/или сложных расчетов. Пишу расширения для браузеров, в том числе по автоматизации. Пишу скрипты для Wildberries, Ozon, Авито и проч.</p>
+                
+                <p><span class="highlight">Пишу калькуляторы</span> (строительные, дистанция доставки, финансовые, ОСАГО и проч.)</p>
+                
+                <p><span class="highlight">Работаю с сервисами Гугл</span> (Таблицы, Документы, Майл, Диск и т.д.) на уровне скриптов Apps Script. Делаю сложные сводные таблицы.</p>
+                
+                <p><span class="highlight">Пишу скрипты/макросы VBA для Excel, Word, Access.</span></p>
+            </div>
+            
+            <button id="copyBtn">Копировать описание услуг</button>
+        </div>
         
-    }); // addEventsListener
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> Технологии и навыки</h2>
+            <div class="skill-tags">
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Apps Script</span>
+                <span class="skill-tag">VBA</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">VB .Net</span>
+                <span class="skill-tag">ИИ/ML</span>
+            </div>
+            <p style="margin-top: 15px;"><span class="highlight">Внедряю ИИ.</span> Создаю автономные модели ML на основе ваших данных. Без сторонних ChatGPT.</p>
+        </div>
+        
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Портфолио (примеры работ)</h2>
+            <div class="portfolio">
+                <div class="portfolio-item">
+                    <div class="portfolio-title">Tilda: wrapcar.ru</div>
+                    <p>Создание с нуля, включая разработку цветовой гаммы и всего функционала</p>
+                    <a href="https://wrapcar.ru" class="portfolio-link" target="_blank">Посмотреть сайт →</a>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-title">WordPress: kamushkof.ru</div>
+                    <p>Верстка и разработка функционала</p>
+                    <a href="https://kamushkof.ru" class="portfolio-link" target="_blank">Посмотреть сайт →</a>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-title">WordPress: taxtica.ru</div>
+                    <p>Разработка практически с нуля</p>
+                    <a href="https://taxtica.ru" class="portfolio-link" target="_blank">Посмотреть сайт →</a>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-title">Bitrix: alumoknaspb.ru</div>
+                    <p>Верстка и работа с Битрикс</p>
+                    <a href="https://alumoknaspb.ru" class="portfolio-link" target="_blank">Посмотреть сайт →</a>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-title">Bitrix: karno-service.ru</div>
+                    <p>Верстка и разработка модулей</p>
+                    <a href="https://karno-service.ru" class="portfolio-link" target="_blank">Посмотреть сайт →</a>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-title">Bitrix: griffix.ru</div>
+                    <p>Верстка и разработка модулей</p>
+                    <a href="https://griffix.ru" class="portfolio-link" target="_blank">Посмотреть сайт →</a>
+                </div>
+            </div>
+            <p style="margin-top: 15px; text-align: center;"><span class="highlight">И много других проектов...</span></p>
+        </div>
+    </div>
     
-</script>
+    <footer>
+        <div class="container">
+            <p>© Разработка сайтов и автоматизация</p>
+            <div class="social-links">
+                <a href="https://cmacuk.t.me" target="_blank" title="Telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+            <p style="margin-top: 15px;">Свяжитесь со мной для обсуждения вашего проекта</p>
+        </div>
+    </footer>
 
+    <script>
+        document.getElementById('copyBtn').addEventListener('click', () => {
+            const content = document.getElementById('content').textContent;
+            
+            navigator.clipboard.writeText(content)
+                .then(() => {
+                    const btn = document.getElementById('copyBtn');
+                    btn.innerHTML = '<i class="fas fa-check"></i> Текст скопирован!';
+                    btn.classList.add('copied');
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = 'Копировать описание услуг';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Не удалось скопировать текст: ', err);
+                    alert('Не удалось скопировать текст. Попробуйте снова.');
+                }); 
+        });
+        
+        // Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
